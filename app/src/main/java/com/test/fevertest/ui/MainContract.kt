@@ -7,7 +7,7 @@ import com.test.fevertest.base.ScopePresenter
 
 interface MainContract {
     interface IView: BaseView {
-        fun showCrews(users: List<Crew>)
+        fun showCrews(crews: List<Crew>)
     }
 
     interface IPresenter: ScopePresenter

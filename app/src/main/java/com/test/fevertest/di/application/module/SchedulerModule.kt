@@ -1,4 +1,4 @@
-package com.test.fevertest.di.modules
+package com.test.fevertest.di.application.module
 
 import com.test.fevertest.utils.schedulers.IScheduleProvider
 import com.test.fevertest.utils.schedulers.ScheduleProviderImp

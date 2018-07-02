@@ -1,4 +1,4 @@
-package com.test.fevertest.di.modules
+package com.test.fevertest.di.application.module
 
 import com.test.domain.interactors.GetCrewsSingleUseCase
 import com.test.domain.repository.IRepository

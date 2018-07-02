@@ -1,23 +1,14 @@
 package com.test.fevertest.base
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
-import com.test.fevertest.AppApplication
 import com.test.fevertest.base.progress.IShowProgress
-import com.test.fevertest.di.components.ApplicationComponent
-import com.test.fevertest.di.modules.ActivityModule
+import com.test.fevertest.di.activity.DaggerActivity
 
-abstract class BaseActivity : AppCompatActivity(), BaseView {
+abstract class BaseActivity : DaggerActivity(), BaseView {
 
     lateinit var showProgress: IShowProgress
     var toolbar: Toolbar? =  null
-
-    protected val activityModule: ActivityModule
-        get() = ActivityModule(this)
-
-    protected val applicationComponent: ApplicationComponent
-        get() = (application as AppApplication).appComponent
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

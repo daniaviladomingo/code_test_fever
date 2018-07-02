@@ -1,4 +1,4 @@
-package com.test.fevertest.di.qualifiers
+package com.test.fevertest.di.activity
 
 import javax.inject.Scope
 
