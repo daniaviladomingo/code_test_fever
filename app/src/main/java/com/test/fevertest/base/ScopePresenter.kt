@@ -1,6 +1,6 @@
-package com.test.fevertest.base
-
-interface ScopePresenter {
-    fun onStop()
-    fun init()
-}
+//package com.test.fevertest.base
+//
+//interface ScopePresenter {
+//    fun onStop()
+//    fun init()
+//}

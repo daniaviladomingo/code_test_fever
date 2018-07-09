@@ -24,17 +24,17 @@ abstract class BaseActivity : DaggerActivity(), BaseView {
 
     private fun initializeToolbar() {}
 
-    override fun onStart() {
-        super.onStart()
-        getScopePresenter().init()
-    }
+//    override fun onStart() {
+//        super.onStart()
+//        getScopePresenter().init()
+//    }
+//
+//    override fun onStop() {
+//        getScopePresenter().onStop()
+//        super.onStop()
+//    }
 
-    override fun onStop() {
-        getScopePresenter().onStop()
-        super.onStop()
-    }
-
-    abstract fun getScopePresenter(): ScopePresenter
+//    abstract fun getScopePresenter(): ScopePresenter
 
     abstract fun getLayoutId(): Int
 
