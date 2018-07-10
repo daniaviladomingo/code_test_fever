@@ -1,6 +1,5 @@
 package com.test.fevertest.di.activity.module
 
-import android.arch.lifecycle.ViewModelProvider
 import com.test.domain.interactors.GetCrewsSingleUseCase
 import com.test.fevertest.di.activity.PerActivity
 import com.test.fevertest.ui.ViewModelFactory
