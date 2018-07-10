@@ -7,4 +7,4 @@ import com.test.fevertest.di.application.ApplicationComponent
 
 fun createApplicationComponent(appApplication: AppApplication): ApplicationComponent = ApplicationComponent.init(appApplication)
 
-fun createActivityComponent(daggerActivity: DaggerActivity, appApplication: AppApplication): ActivityComponent = ActivityComponent.init(daggerActivity, appApplication.applicationComponent)
+fun createActivityComponent(appApplication: AppApplication): ActivityComponent = ActivityComponent.init(appApplication.applicationComponent)

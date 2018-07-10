@@ -6,7 +6,6 @@ import com.test.domain.interactors.GetCrewsSingleUseCase
 import com.test.domain.repository.IRepository
 import com.test.fevertest.AppApplication
 import com.test.fevertest.di.application.module.*
-import com.test.fevertest.di.components.DaggerApplicationComponent
 import com.test.fevertest.utils.schedulers.IScheduleProvider
 import dagger.Component
 import javax.inject.Singleton

@@ -21,8 +21,8 @@ class MainViewModule(private val getCrewsSingleUseCase: GetCrewsSingleUseCase,
 
     fun loadCrews() {
         disposable.add(getCrewsSingleUseCase.execute(false)
-                .observeOn(scheduleProvider.io())
-                .subscribeOn(scheduleProvider.ui())
+                .subscribeOn(scheduleProvider.io())
+                .observeOn(scheduleProvider.ui())
                 .subscribe { accounts ->
                     mutableLiveData.value = accounts
                 })

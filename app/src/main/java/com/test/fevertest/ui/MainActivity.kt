@@ -1,7 +1,6 @@
 package com.test.fevertest.ui
 
 import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.arch.lifecycle.ViewModelProviders
@@ -19,7 +18,7 @@ class MainActivity : BaseActivity()/*, MainContract.IView*/ {
 //    lateinit var presenter: MainContract.IPresenter
 
     @Inject
-    lateinit var viewModelFactory: ViewModelProvider.Factory
+    lateinit var viewModelFactory: ViewModelFactory
     private lateinit var mainViewModule: MainViewModule
 
     private val crewList = mutableListOf<Crew>()
@@ -42,6 +41,8 @@ class MainActivity : BaseActivity()/*, MainContract.IView*/ {
             crewList.addAll(it!!)
             crewListAdapter.notifyDataSetChanged()
         })
+
+        mainViewModule.loadCrews()
     }
 
     override fun getLayoutId() = R.layout.activity_main
