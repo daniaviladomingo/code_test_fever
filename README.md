@@ -1,4 +1,4 @@
-# Code Test for Fever (MVP RxAndroid)
+# Code Test for Fever (MVP with RxAndroid)
 
 Captain Kirk is checking the crew database of the Enterprise in order to prepare for its next 5
 year mission to boldly go where no man has gone before. Every member of the crew is assigned
