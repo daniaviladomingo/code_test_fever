@@ -10,9 +10,9 @@ import io.reactivex.disposables.CompositeDisposable
 class MainViewModule(private val getCrewsSingleUseCase: GetCrewsSingleUseCase,
                      private val scheduleProvider: IScheduleProvider): ViewModel() {
 
-    val mutableLiveData = MutableLiveData<List<Crew>>()
-
     private val disposable = CompositeDisposable()
+
+    var listCrew = MutableLiveData<List<Crew>>()
 
     override fun onCleared() {
         disposable.clear()
@@ -24,7 +24,7 @@ class MainViewModule(private val getCrewsSingleUseCase: GetCrewsSingleUseCase,
                 .subscribeOn(scheduleProvider.io())
                 .observeOn(scheduleProvider.ui())
                 .subscribe { accounts ->
-                    mutableLiveData.value = accounts
+                    listCrew.value = accounts
                 })
     }
 }
