@@ -12,19 +12,24 @@ class MainViewModule(private val getCrewsSingleUseCase: GetCrewsSingleUseCase,
 
     private val disposable = CompositeDisposable()
 
-    var listCrew = MutableLiveData<List<Crew>>()
+    var listCrew: MutableLiveData<List<Crew>>? = null
+        get() {
+            field = field ?: MutableLiveData()
+            loadCrews()
+            return field
+        }
 
     override fun onCleared() {
         disposable.clear()
         super.onCleared()
     }
 
-    fun loadCrews() {
+    private fun loadCrews() {
         disposable.add(getCrewsSingleUseCase.execute(false)
                 .subscribeOn(scheduleProvider.io())
                 .observeOn(scheduleProvider.ui())
                 .subscribe { accounts ->
-                    listCrew.value = accounts
+                    listCrew?.value = accounts
                 })
     }
 }
