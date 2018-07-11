@@ -12,10 +12,7 @@ import com.test.fevertest.ui.adapter.CrewListAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
-class MainActivity : BaseActivity()/*, MainContract.IView*/ {
-
-//    @Inject
-//    lateinit var presenter: MainContract.IPresenter
+class MainActivity : BaseActivity() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
@@ -23,8 +20,6 @@ class MainActivity : BaseActivity()/*, MainContract.IView*/ {
 
     private val crewList = mutableListOf<Crew>()
     private lateinit var crewListAdapter: CrewListAdapter
-
-//    override fun getScopePresenter() = presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +32,7 @@ class MainActivity : BaseActivity()/*, MainContract.IView*/ {
 
         mainViewModule = ViewModelProviders.of(this, viewModelFactory).get(MainViewModule::class.java)
 
-        mainViewModule.mutableLiveData.observe(this, Observer {
+        mainViewModule.listCrew.observe(this, Observer {
             crewList.addAll(it!!)
             crewListAdapter.notifyDataSetChanged()
         })
@@ -46,11 +41,6 @@ class MainActivity : BaseActivity()/*, MainContract.IView*/ {
     }
 
     override fun getLayoutId() = R.layout.activity_main
-
-//    override fun showCrews(crews: List<Crew>) {
-//        crewList.addAll(crews)
-//        runOnUiThread { crewListAdapter.notifyDataSetChanged() }
-//    }
 
     override fun inject(activityComponent: ActivityComponent) {
         activityComponent.inject(this)
