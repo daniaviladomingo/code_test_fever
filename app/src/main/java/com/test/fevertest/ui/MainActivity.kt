@@ -32,12 +32,10 @@ class MainActivity : BaseActivity() {
 
         mainViewModule = ViewModelProviders.of(this, viewModelFactory).get(MainViewModule::class.java)
 
-        mainViewModule.listCrew.observe(this, Observer {
+        mainViewModule.listCrew?.observe(this, Observer {
             crewList.addAll(it!!)
             crewListAdapter.notifyDataSetChanged()
         })
-
-        mainViewModule.loadCrews()
     }
 
     override fun getLayoutId() = R.layout.activity_main
