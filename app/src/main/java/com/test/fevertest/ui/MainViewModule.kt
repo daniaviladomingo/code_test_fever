@@ -8,7 +8,7 @@ import com.test.fevertest.utils.schedulers.IScheduleProvider
 import io.reactivex.disposables.CompositeDisposable
 
 class MainViewModule(private val getCrewsSingleUseCase: GetCrewsSingleUseCase,
-                     private val scheduleProvider: IScheduleProvider): ViewModel() {
+                     private val scheduleProvider: IScheduleProvider) : ViewModel() {
 
     private val disposable = CompositeDisposable()
 
