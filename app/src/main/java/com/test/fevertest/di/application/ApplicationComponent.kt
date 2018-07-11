@@ -6,6 +6,7 @@ import com.test.domain.interactors.GetCrewsSingleUseCase
 import com.test.domain.repository.IRepository
 import com.test.fevertest.AppApplication
 import com.test.fevertest.di.application.module.*
+import com.test.fevertest.ui.ViewModelFactory
 import com.test.fevertest.utils.schedulers.IScheduleProvider
 import dagger.Component
 import javax.inject.Singleton
@@ -16,7 +17,8 @@ import javax.inject.Singleton
     DataModule::class,
     RandomModule::class,
     SchedulerModule::class,
-    UseCaseModule::class])
+    UseCaseModule::class,
+    ViewModelModule::class])
 
 interface ApplicationComponent {
 
@@ -29,6 +31,8 @@ interface ApplicationComponent {
     fun provideSchedule(): IScheduleProvider
 
     fun provideUseCase(): GetCrewsSingleUseCase
+
+    fun provideViewModelFactory(): ViewModelFactory
 
     companion object {
         fun init(appApplication: AppApplication): ApplicationComponent = DaggerApplicationComponent.builder()
