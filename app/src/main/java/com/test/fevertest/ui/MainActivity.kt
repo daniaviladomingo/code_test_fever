@@ -5,6 +5,7 @@ import android.support.v7.widget.LinearLayoutManager
 import com.test.domain.model.Crew
 import com.test.fevertest.R
 import com.test.fevertest.base.BaseActivity
+import com.test.fevertest.databinding.ActivityMainBinding
 import com.test.fevertest.di.activity.ActivityComponent
 import com.test.fevertest.ui.adapter.CrewListAdapter
 import kotlinx.android.synthetic.main.activity_main.*
@@ -21,7 +22,7 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
+        ActivityMainBinding.inflate(layoutInflater)
 
         crewListAdapter = CrewListAdapter(this, crewList)
 

@@ -12,5 +12,5 @@
         android:id="@+id/crew_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:items="@{viewModel.listCrew}"/>
+        app:items="@{viewModel.listCrew}" />
 </layout>
