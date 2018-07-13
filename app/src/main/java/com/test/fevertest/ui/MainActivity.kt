@@ -1,9 +1,7 @@
 package com.test.fevertest.ui
 
-import android.arch.lifecycle.Observer
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import android.arch.lifecycle.ViewModelProviders
 import com.test.domain.model.Crew
 import com.test.fevertest.R
 import com.test.fevertest.base.BaseActivity
@@ -15,8 +13,7 @@ import javax.inject.Inject
 class MainActivity : BaseActivity() {
 
     @Inject
-    lateinit var viewModelFactory: ViewModelFactory
-    private lateinit var mainViewModule: MainViewModule
+    lateinit var mainViewModel: MainViewModel
 
     private val crewList = mutableListOf<Crew>()
     private lateinit var crewListAdapter: CrewListAdapter
@@ -24,18 +21,15 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
+
         crewListAdapter = CrewListAdapter(this, crewList)
 
         crew_recyclerview.setHasFixedSize(true)
         crew_recyclerview.adapter = crewListAdapter
         crew_recyclerview.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
-        mainViewModule = ViewModelProviders.of(this, viewModelFactory).get(MainViewModule::class.java)
-
-        mainViewModule.listCrew?.observe(this, Observer {
-            crewList.addAll(it!!)
-            crewListAdapter.notifyDataSetChanged()
-        })
+        mainViewModel.loadCrews()
     }
 
     override fun getLayoutId() = R.layout.activity_main
