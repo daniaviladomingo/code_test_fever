@@ -15,17 +15,15 @@ import com.test.fevertest.databinding.ItemCrewBinding
 import kotlinx.android.synthetic.main.item_crew.view.*
 
 class CrewListAdapter(private var context: Context, private var crewList: List<Crew>): RecyclerView.Adapter<CrewListAdapter.CrewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CrewHolder {
-        val v: ItemCrewBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_crew, parent, false)
-        return CrewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_crew, parent, false))
-    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CrewHolder =
+            CrewHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_crew, parent, false))
 
     override fun getItemCount() = crewList.size
 
-    override fun onBindViewHolder(holder: CrewHolder, position: Int) = holder.bin(crewList[position])
+    override fun onBindViewHolder(holder: CrewHolder, position: Int) = holder.bind(crewList[position])
 
-    inner class CrewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bin(crew: Crew){
+    inner class CrewHolder(private val crewBinding: ItemCrewBinding) : RecyclerView.ViewHolder(crewBinding.root) {
+        fun bind(crew: Crew){
             crew.run {
                 when {
                     crew.area.name == AREAS.ENGINEERING.name -> itemView.position.setBackgroundColor(ContextCompat.getColor(context, R.color.red))
@@ -33,8 +31,9 @@ class CrewListAdapter(private var context: Context, private var crewList: List<C
                     crew.area.name == AREAS.SCIENCE.name -> itemView.position.setBackgroundColor(ContextCompat.getColor(context, R.color.blue))
                     else -> itemView.position.setBackgroundColor(ContextCompat.getColor(context, R.color.other))
                 }
-                itemView.crew_name.text = name
-                itemView.crew_race.text = race.name
+//                itemView.crew_name.text = name
+//                itemView.crew_race.text = race.name
+                crewBinding.crew = crew
                 setMultiplier(this, itemView)
 
             }

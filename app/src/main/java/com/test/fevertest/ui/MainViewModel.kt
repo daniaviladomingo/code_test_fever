@@ -1,6 +1,5 @@
 package com.test.fevertest.ui
 
-import android.databinding.BaseObservable
 import android.databinding.ObservableArrayList
 import com.test.domain.interactors.GetCrewsSingleUseCase
 import com.test.domain.model.Crew
@@ -8,7 +7,7 @@ import com.test.fevertest.utils.schedulers.IScheduleProvider
 import io.reactivex.disposables.CompositeDisposable
 
 class MainViewModel(private val getCrewsSingleUseCase: GetCrewsSingleUseCase,
-                    private val scheduleProvider: IScheduleProvider) : BaseObservable() {
+                    private val scheduleProvider: IScheduleProvider) {
 
     private val disposable = CompositeDisposable()
 
