@@ -6,7 +6,7 @@
 
         <variable
             name="crew"
-            type="com.test.domain.model.Crew" />
+            type="com.test.fevertest.model.CrewView" />
     </data>
 
     <LinearLayout
@@ -25,6 +25,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:singleLine="true"
+            tools:colorPosition="@{crew.area}"
             android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
             tools:text="Position" />
 
@@ -59,6 +60,8 @@
             android:ellipsize="end"
             android:gravity="center"
             android:singleLine="true"
+            tools:race="@{crew.race}"
+            tools:area="@{crew.area}"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textColor="?android:textColorSecondary"
             tools:text="Multiplier" />

@@ -2,7 +2,8 @@ package com.test.fevertest.ui
 
 import android.databinding.ObservableArrayList
 import com.test.domain.interactors.GetCrewsSingleUseCase
-import com.test.domain.model.Crew
+import com.test.fevertest.model.CrewView
+import com.test.fevertest.model.mapper.ViewMapper
 import com.test.fevertest.utils.schedulers.IScheduleProvider
 import io.reactivex.disposables.CompositeDisposable
 
@@ -11,7 +12,7 @@ class MainViewModel(private val getCrewsSingleUseCase: GetCrewsSingleUseCase,
 
     private val disposable = CompositeDisposable()
 
-    val listCrew = ObservableArrayList<Crew>()
+    val listCrew = ObservableArrayList<CrewView>()
 
     fun loadCrews() {
         disposable.add(getCrewsSingleUseCase.execute(false)
@@ -20,7 +21,7 @@ class MainViewModel(private val getCrewsSingleUseCase: GetCrewsSingleUseCase,
                 .subscribe { crews ->
                     listCrew.run {
                         clear()
-                        addAll(crews)
+                        addAll(ViewMapper.map(crews))
                     }
                 })
     }
