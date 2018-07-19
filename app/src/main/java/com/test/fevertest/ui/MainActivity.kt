@@ -33,6 +33,8 @@ class MainActivity : BaseActivity() {
 
     override fun getLayoutId() = R.layout.activity_main
 
+    override fun getViewModel() = mainViewModel
+
     override fun inject(activityComponent: ActivityComponent) {
         activityComponent.inject(this)
     }

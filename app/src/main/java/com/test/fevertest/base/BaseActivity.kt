@@ -22,21 +22,16 @@ abstract class BaseActivity : DaggerActivity(), BaseView {
         initializeToolbar()
     }
 
+    override fun onDestroy() {
+        getViewModel().release()
+        super.onDestroy()
+    }
+
     private fun initializeToolbar() {}
 
-//    override fun onStart() {
-//        super.onStart()
-//        getScopePresenter().init()
-//    }
-//
-//    override fun onStop() {
-//        getScopePresenter().onStop()
-//        super.onStop()
-//    }
-
-//    abstract fun getScopePresenter(): ScopePresenter
-
     abstract fun getLayoutId(): Int
+
+    abstract fun getViewModel(): BaseViewModel
 
     override fun showProgress(message: String) {
         showProgress.showProgress(message)
