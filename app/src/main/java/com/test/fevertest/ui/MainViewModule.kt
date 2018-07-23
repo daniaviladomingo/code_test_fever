@@ -28,8 +28,8 @@ class MainViewModule(private val getCrewsSingleUseCase: GetCrewsSingleUseCase,
         disposable.add(getCrewsSingleUseCase.execute(false)
                 .subscribeOn(scheduleProvider.io())
                 .observeOn(scheduleProvider.ui())
-                .subscribe { accounts ->
-                    listCrew?.value = accounts
+                .subscribe { crews ->
+                    listCrew?.value = crews
                 })
     }
 }
