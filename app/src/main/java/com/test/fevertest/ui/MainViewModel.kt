@@ -13,7 +13,7 @@ class MainViewModel(private val getCrewsSingleUseCase: GetCrewsSingleUseCase,
     val listCrew = ObservableArrayList<CrewView>()
 
     fun loadCrews() {
-        disposable.add(getCrewsSingleUseCase.execute(false)
+        disposable.add(getCrewsSingleUseCase.execute()
                 .subscribeOn(scheduleProvider.io())
                 .observeOn(scheduleProvider.ui())
                 .subscribe { crews ->
