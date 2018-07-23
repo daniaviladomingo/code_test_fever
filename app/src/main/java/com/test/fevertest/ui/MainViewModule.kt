@@ -25,7 +25,7 @@ class MainViewModule(private val getCrewsSingleUseCase: GetCrewsSingleUseCase,
     }
 
     private fun loadCrews() {
-        disposable.add(getCrewsSingleUseCase.execute(false)
+        disposable.add(getCrewsSingleUseCase.execute()
                 .subscribeOn(scheduleProvider.io())
                 .observeOn(scheduleProvider.ui())
                 .subscribe { crews ->
