@@ -6,5 +6,8 @@ import com.test.fevertest.model.CrewView
 
 object ViewMapper: Mapper<Crew, CrewView>() {
     override fun map(model: Crew): CrewView = model.run { CrewView(name, area, race) }
-    override fun inverseMap(model: CrewView): Crew = model.run { Crew(name, area, race) }
+
+    override fun inverseMap(model: CrewView): Crew {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 }
