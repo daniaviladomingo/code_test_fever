@@ -21,7 +21,7 @@ class MainActivity : BaseActivity() {
         DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main).run {
             crewRecyclerview.run {
                 setHasFixedSize(true)
-                adapter = CrewListAdapter(this@MainActivity)
+                adapter = CrewListAdapter()
                 layoutManager = LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
             }
 

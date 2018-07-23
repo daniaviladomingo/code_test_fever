@@ -1,6 +1,5 @@
 package com.test.fevertest.ui.adapter
 
-import android.content.Context
 import android.databinding.DataBindingUtil
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -9,7 +8,7 @@ import com.test.fevertest.R
 import com.test.fevertest.databinding.ItemCrewBinding
 import com.test.fevertest.model.CrewView
 
-class CrewListAdapter(private var context: Context): RecyclerView.Adapter<CrewListAdapter.CrewHolder>() {
+class CrewListAdapter: RecyclerView.Adapter<CrewListAdapter.CrewHolder>() {
 
     private var crewList: List<CrewView> = mutableListOf()
 
