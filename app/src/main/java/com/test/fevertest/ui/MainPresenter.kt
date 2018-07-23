@@ -9,7 +9,7 @@ class MainPresenter(private val getCrewsSingleUseCase: GetCrewsSingleUseCase,
                     view: MainContract.IView): BasePresenter<MainContract.IView>(view), MainContract.IPresenter {
 
     override fun init() {
-        addDisposable(getCrewsSingleUseCase.execute(false)
+        addDisposable(getCrewsSingleUseCase.execute()
                 .observeOn(scheduleProvider.io())
                 .subscribeOn(scheduleProvider.ui())
                 .subscribe { accounts ->
