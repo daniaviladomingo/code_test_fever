@@ -11,7 +11,7 @@ class ViewModelFactory(private val getCrewsSingleUseCase: GetCrewsSingleUseCase,
     override fun <T : ViewModel?> create(modelClass: Class<T>) =
             with(modelClass) {
                 when {
-                    isAssignableFrom(MainViewModule::class.java) -> MainViewModule(getCrewsSingleUseCase, scheduleProvider)
+                    isAssignableFrom(MainViewModel::class.java) -> MainViewModel(getCrewsSingleUseCase, scheduleProvider)
                     else -> throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
 
                 }

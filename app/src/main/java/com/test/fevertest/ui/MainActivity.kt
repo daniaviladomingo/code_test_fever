@@ -16,7 +16,7 @@ class MainActivity : BaseActivity() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
-    private lateinit var mainViewModule: MainViewModule
+    private lateinit var mainViewModule: MainViewModel
 
     private val crewList = mutableListOf<Crew>()
     private lateinit var crewListAdapter: CrewListAdapter
@@ -30,7 +30,7 @@ class MainActivity : BaseActivity() {
         crew_recyclerview.adapter = crewListAdapter
         crew_recyclerview.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
-        mainViewModule = ViewModelProviders.of(this, viewModelFactory).get(MainViewModule::class.java)
+        mainViewModule = ViewModelProviders.of(this, viewModelFactory).get(MainViewModel::class.java)
 
         mainViewModule.listCrew?.observe(this, Observer {
             crewList.addAll(it!!)
