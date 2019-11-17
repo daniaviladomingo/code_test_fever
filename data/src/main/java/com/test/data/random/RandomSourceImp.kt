@@ -8,7 +8,7 @@ class RandomSourceImp : IRandomSource {
     private var listCrew = mutableListOf<Crew>()
 
     init {
-        (0..430).forEach {
+        repeat((0..430).count()) {
             listCrew.add(Crew(randomName(8), Area(AREAS.random.name), Race(RACE.random.name)))
         }
     }
