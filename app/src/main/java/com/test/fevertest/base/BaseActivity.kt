@@ -1,7 +1,7 @@
 package com.test.fevertest.base
 
 import android.os.Bundle
-import android.support.v7.widget.Toolbar
+import androidx.appcompat.widget.Toolbar
 import com.test.fevertest.base.progress.IShowProgress
 import com.test.fevertest.di.activity.DaggerActivity
 

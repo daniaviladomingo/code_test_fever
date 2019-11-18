@@ -1,7 +1,7 @@
 package com.test.fevertest.ui
 
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.test.domain.model.Crew
 import com.test.fevertest.R
 import com.test.fevertest.base.BaseActivity

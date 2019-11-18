@@ -1,7 +1,7 @@
 package com.test.fevertest.di.activity
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.test.fevertest.AppApplication
 import com.test.fevertest.di.createActivityComponent
 
